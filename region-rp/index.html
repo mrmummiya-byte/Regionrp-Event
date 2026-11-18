@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Region RP | Вход</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body class="auth-body">
+    <div class="auth-container">
+        <h3 class="auth-logo">REGION <span>RP</span></h3>
+        <ul class="nav nav-pills nav-fill mb-3" id="authTabs">
+            <li class="nav-item"><a class="nav-link active" href="#" onclick="switchAuthTab('login')">Вход</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" onclick="switchAuthTab('register')">Регистрация</a></li>
+        </ul>
+        <div id="authError" class="alert alert-danger py-2 d-none"></div>
+
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <input type="text" id="loginUser" class="form-control mb-2" placeholder="Логин" required>
+            <input type="password" id="loginPass" class="form-control mb-3" placeholder="Пароль" required>
+            <button class="btn btn-primary w-100" type="submit">Войти</button>
+        </form>
+
+        <form id="registerForm" class="d-none" onsubmit="handleRegister(event)">
+            <input type="text" id="regUser" class="form-control mb-2" placeholder="Логин" required>
+            <input type="password" id="regPass" class="form-control mb-2" placeholder="Пароль" required>
+            <input type="password" id="regPassConfirm" class="form-control mb-3" placeholder="Повторите пароль" required>
+            <button class="btn btn-primary w-100" type="submit">Создать аккаунт</button>
+        </form>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

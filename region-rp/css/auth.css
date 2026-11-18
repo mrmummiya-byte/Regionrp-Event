@@ -1,0 +1,35 @@
+:root {
+    --bg-main: #101012;
+    --bg-panel: #18181c;
+    --bg-input: #222228;
+    --text-main: #e4e4e7;
+    --text-muted: #8a8a93;
+    --accent-red: #e63946;
+    --border-color: #31313a;
+}
+body.auth-body {
+    background: radial-gradient(circle at center, #1a1a1e 0%, #101012 100%);
+    color: var(--text-main);
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+.auth-container {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    width: 420px;
+    padding: 2rem;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+.auth-logo { text-align: center; font-weight: 800; font-size: 26px; margin-bottom: 1.5rem; color: #fff; }
+.auth-logo span { color: var(--accent-red); }
+.form-control { background: var(--bg-input); border: 1px solid var(--border-color); color: #fff; }
+.form-control:focus { background: var(--bg-input); color: #fff; border-color: var(--accent-red); box-shadow: 0 0 0 2px rgba(230,57,70,0.2); }
+.btn-primary { background: var(--accent-red); border: none; }
+.btn-primary:hover { background: #c92a36; }
+.nav-pills .nav-link.active { background: var(--accent-red); }
+.nav-pills .nav-link { color: var(--text-muted); }

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Region RP | Панель</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<aside class="rr-sidebar">
+    <a class="rr-brand" href="dashboard.html">
+        <span class="rr-brand-mark">R</span>
+        <span class="rr-brand-copy"><strong>REGION <i>RP</i></strong><small>EVENT OPERATIONS</small></span>
+    </a>
+    <div class="rr-side-caption">Рабочее пространство</div>
+    <ul class="nav flex-column rr-nav" id="mainNav">
+        <li class="nav-item"><a class="nav-link active" href="#" data-section="events"><span class="rr-nav-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M7 3v4m10-4v4M3 9h18M8 13h.01M12 13h.01M16 13h.01M8 17h.01M12 17h.01"></path></svg></span> Ивенты</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-section="admin" id="adminSectionLink" style="display: none;"><span class="rr-nav-icon"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span> Управление составом</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-section="helpers"><span class="rr-nav-icon"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span> Хелперы</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-section="top"><span class="rr-nav-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"></rect><path d="M16 2v4M8 2v4M3 9h18M8 13h3v3H8z"></path></svg></span> Топ за месяц</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-section="roster"><span class="rr-nav-icon"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path></svg></span> Состав</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-section="mp"><span class="rr-nav-icon"><svg viewBox="0 0 24 24"><path d="M6 12h4m-2-2v4m6-2h.01m3-2h.01"></path><path d="M7 6h10a4 4 0 0 1 3.9 3.1l1 4.4a3 3 0 0 1-4.8 3l-2.1-1.6H9l-2.1 1.6a3 3 0 0 1-4.8-3l1-4.4A4 4 0 0 1 7 6Z"></path></svg></span> Мероприятия</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-section="watchlist"><span class="rr-nav-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"></path><path d="M12 8v4m0 4h.01"></path></svg></span> Карцер <span class="rr-nav-count" id="watchlistCountBadge">0</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="#" data-section="rules"><span class="rr-nav-icon"><svg viewBox="0 0 24 24"><path d="m3 6 1.5 1.5L7 5m3 1h11M3 12l1.5 1.5L7 11m3 1h11M3 18l1.5 1.5L7 17m3 1h11"></path></svg></span> Регламент</a></li>
+    </ul>
+    <div class="rr-sidebar-account">
+        <a class="rr-sidebar-profile-link" href="#">
+            <span class="rr-avatar" id="sidebarAvatar">?</span>
+            <span><span id="sidebarUserName">Пользователь</span><small id="sidebarUserRole">Роль</small></span>
+        </a>
+        <div class="rr-sidebar-footer"><span class="rr-status-pulse"></span>Панель доступна</div>
+        <button class="btn btn-sm btn-outline-danger w-100 mt-2" onclick="logout()">Выйти</button>
+    </div>
+</aside>
+
+<main class="rr-main">
+    <div class="rr-topbar">
+        <div class="rr-crumbbar"><span>Region RP</span> <b>›</b> <strong id="currentSectionTitle">Ивенты</strong> <small class="text-muted ms-3" id="liveStatus">Данные обновлены</small></div>
+        <div class="rr-user-chip">
+            <span class="rr-avatar" id="topbarAvatar">?</span>
+            <div><span id="topbarUserName">Пользователь</span><small id="topbarUserRole">Роль</small></div>
+            <button class="btn btn-sm btn-outline-secondary ms-2" onclick="logout()">Выйти</button>
+        </div>
+    </div>
+
+    <section class="rr-page-heading">
+        <div class="rr-page-heading-copy">
+            <div class="rr-eyebrow"><span></span>ПАНЕЛЬ ИВЕНТОВ <b>/</b> <span id="todayDate"></span></div>
+            <h1>Добрый день, <span id="welcomeName">mummiya</span><i>.</i></h1>
+            <p>Создание мероприятий, история и работа команды.</p>
+        </div>
+    </section>
+
+    <!-- МЕТРИКИ -->
+    <section class="rr-metrics">
+        <article class="rr-metric rr-metric-feature">
+            <div class="rr-metric-label">В ИСТОРИИ</div>
+            <strong id="metricHistory">0 <small>ивентов</small></strong>
+            <span>Завершённые записи</span>
+        </article>
+        <article class="rr-metric">
+            <div class="rr-metric-label">В ПРОЦЕССЕ</div>
+            <strong id="metricProcess">0 <small>ивентов</small></strong>
+            <span>Ожидают внесения участников</span>
+        </article>
+        <article class="rr-metric">
+            <div class="rr-metric-label">АКТИВНЫЕ МП</div>
+            <strong id="metricMp">0 <small>доступно</small></strong>
+            <span>Для создания мероприятий</span>
+        </article>
+        <article class="rr-metric">
+            <div class="rr-metric-label">КАРЦЕР</div>
+            <strong id="metricWatch">0 <small>записей</small></strong>
+            <span>Предупреждения и игроки</span>
+        </article>
+    </section>
+
+    <!-- Секция: Ивенты -->
+    <div id="section-events" class="section-content">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="card shadow-sm border-primary">
+                    <div class="card-header bg-primary text-white">Внести ивент</div>
+                    <div class="card-body">
+                        <form id="eventForm" onsubmit="handleCreateEvent(event)">
+                            <div class="mb-3 p-2 rounded" style="border: 1px solid var(--border-color); background: rgba(255,255,255,0.05) !important;"><label class="fw-bold" style="color: #ff8a80 !important;" for="eventDate">A - Дата проведения</label><input type="date" id="eventDate" class="form-control mt-1" required></div>
+                            <div class="mb-2"><label style="color: #fff !important;">B - Проводящий</label><select id="eventHost" class="form-select" required><option value="">Выбрать...</option></select></div>
+                            <div class="mb-2"><fieldset class="rr-choice-field"><legend style="color: #ccc !important;">C — Помощники</legend><div class="rr-checklist" id="eventHelpersList"></div></fieldset></div>
+                            <div class="mb-2"><fieldset class="rr-choice-field"><legend style="color: #ccc !important;">D — Администраторы</legend><div class="rr-checklist" id="eventAdminsList"></div></fieldset></div>
+                            <div class="mb-2"><label style="color: #fff !important;">E - Ивент</label><select id="eventName" class="form-select" required><option value="">Выберите...</option></select></div>
+                            <div class="row"><div class="col-6 mb-2"><label style="color: #fff !important;">F - Приз</label><input type="number" id="eventPrize" class="form-control" value="75000" required></div><div class="col-6 mb-2"><label style="color: #fff !important;">Время сбора (до)</label><input type="time" id="eventTime" class="form-control" value="22:00" required></div></div>
+                            <div class="alert alert-info py-1 mb-3 text-center" style="font-size: 0.85rem; background: rgba(13,202,240,0.15) !important; color: #fff !important; border-color: rgba(13,202,240,0.3) !important;">Участники вносятся позже, после ивента.</div>
+                            <button type="submit" class="btn btn-success w-100">Отправить уведомление</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-dark text-white d-flex justify-content-between"><span>История ивентов</span><span class="badge bg-secondary" id="eventCountBadge">0</span></div>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-hover mb-0 text-center">
+                            <thead style="position: sticky; top: 0; z-index: 1; background: var(--bg-table-header) !important;"><tr style="background: var(--bg-table-header) !important;"><th>Дата</th><th>Время сбора (МСК)</th><th>Ивент</th><th>Проводящий</th><th>Приз</th><th>Участники</th><th>Статус</th><th>Действие</th></tr></thead>
+                            <tbody id="historyTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Секция: Управление составом -->
+    <div id="section-admin" class="section-content section-hidden">
+        <div class="card">
+            <div class="card-header bg-danger text-white">Управление составом</div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle rr-admin-table">
+                        <thead><tr><th>Пользователь</th><th>Роль</th><th>Действие</th></tr></thead>
+                        <tbody id="adminTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Секция: Хелперы -->
+    <div id="section-helpers" class="section-content section-hidden">
+        <div class="card">
+            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                <span>Список хелперов и их статистика</span>
+                <span class="text-muted small" id="helpersCount">Всего: 0</span>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover text-center align-middle">
+                        <thead><tr><th>#</th><th>Никнейм</th><th>Роль</th><th>Провёл</th><th>Помог</th><th>Баллы</th></tr></thead>
+                        <tbody id="helpersTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Секция: Топ за месяц -->
+    <div id="section-top" class="section-content section-hidden">
+        <div class="card">
+            <div class="card-header bg-dark text-white d-flex justify-content-between">
+                <span>Топ за месяц</span>
+                <span class="text-muted small">Автоматический расчёт из ивентов</span>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover text-center align-middle">
+                        <thead><tr><th>Место</th><th>Никнейм</th><th>Провёл (1.5 б.)</th><th>Помог (0.5 б.)</th><th>Дополнительно</th><th>Баллы</th></tr></thead>
+                        <tbody id="topTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Секция: Состав -->
+    <div id="section-roster" class="section-content section-hidden">
+        <div class="card">
+            <div class="card-header bg-dark text-white">Состав панели</div>
+            <div class="card-body"><div class="staff-grid" id="staffGrid"></div></div>
+        </div>
+    </div>
+
+    <!-- Секция: Мероприятия -->
+    <div id="section-mp" class="section-content section-hidden">
+        <div class="card">
+            <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+                <span>Мероприятия сервера</span>
+                <button class="btn btn-sm btn-success" onclick="addMp()" id="addMpBtn">➕ Добавить МП</button>
+            </div>
+            <div class="card-body">
+                <p class="text-muted small mb-3">В форме создания доступны только активные МП. Администраторы могут включать/выключать и удалять их.</p>
+                <div class="mp-grid" id="mpGrid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Секция: Карцер -->
+    <div id="section-watchlist" class="section-content section-hidden">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-header bg-danger text-white">Добавить нарушителя</div>
+                    <div class="card-body">
+                        <div class="mb-2">
+                            <label class="small text-muted">Static ID</label>
+                            <input type="text" id="warnStaticId" class="form-control" placeholder="Например: 3020">
+                        </div>
+                        <div class="mb-2">
+                            <label class="small text-muted">Комментарий</label>
+                            <textarea id="warnReason" class="form-control" rows="3" placeholder="Причина предупреждения"></textarea>
+                        </div>
+                        <div class="mb-2">
+                            <label class="small text-muted">Уровень</label>
+                            <select id="warnLevel" class="form-select">
+                                <option value="1/3">1/3</option>
+                                <option value="2/3">2/3</option>
+                                <option value="3/3">3/3</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-danger w-100" onclick="addWarning()">Добавить предупреждение</button>
+                        <div class="alert alert-info mt-3 py-2 small">
+                            За каждое добавление кандидат получает предупреждение. При 3/3 автоматически включается запрет на ивенты.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-header bg-dark text-white d-flex justify-content-between">
+                        <span>Список на карцер</span>
+                        <span class="text-muted small" id="watchlistCount">Всего: 0</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive" style="max-height: 600px; overflow-y: auto;">
+                            <table class="table table-hover text-center align-middle">
+                                <thead>
+                                    <tr><th>Static ID</th><th>Предупреждения</th><th>Комментарий</th><th>Кто добавил</th><th>Дата</th><th>Действие</th></tr>
+                                </thead>
+                                <tbody id="watchlistTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Секция: Регламент -->
+    <div id="section-rules" class="section-content section-hidden">
+        <div class="card"><div class="card-header">Регламент</div><div class="card-body text-muted">В разработке...</div></div>
+    </div>
+</main>
+
+<!-- Модалка помощников -->
+<div class="modal fade" id="helpersModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background: var(--bg-panel); border: 1px solid var(--border-color); color: #fff;">
+            <div class="modal-header border-secondary"><h5 class="modal-title">Добавить помощников к ивенту</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div>
+            <div class="modal-body"><p class="text-muted small" id="modalEventInfo"></p><div id="modalHelpersList" class="d-flex flex-column gap-2"></div></div>
+            <div class="modal-footer border-secondary"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button><button type="button" class="btn btn-primary" onclick="saveHelpers()">Сохранить</button></div>
+        </div>
+    </div>
+</div>
+
+<!-- Toast контейнер для уведомлений -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/events.js"></script>
+</body>
+</html>
